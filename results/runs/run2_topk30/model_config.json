@@ -1,0 +1,6 @@
+{
+  "n_features": 40,
+  "hidden": 16,
+  "bottleneck": 8,
+  "top_k_can_ids": 30
+}
