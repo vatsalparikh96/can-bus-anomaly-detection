@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE / AI tooling
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ----------------------------------------------------------------------
+# Project-specific
+# ----------------------------------------------------------------------
+
+# Datasets — never commit. Users download per README instructions.
+data/otids/raw/
+data/otids/processed/
+data/crysys/raw/
+data/crysys/logs/
+
+# Trained-model binaries and large NumPy tensors (regeneratable from scripts/train.py)
+*.pt
+*.npy
+*.npz
+
+# CrySyS .log files (the file format collision with Python logs is avoided since
+# our app produces no .log output)
+*.log
+
+# Scratch dir for ad-hoc runs (scripts/{train,evaluate}.py default --out-dir).
+# Kept runs go under results/runs/<name>/ explicitly.
+results/_latest/
+
+# Keep curated outputs in results/ committed: plots, metrics JSON, markdown logs.
+!results/*.png
+!results/*.json
+!results/*.md
+!results/runs/*/*.json
+!results/runs/*/*.png
+
+# Learning-phase notebooks kept locally for reference
+notebooks/learning/

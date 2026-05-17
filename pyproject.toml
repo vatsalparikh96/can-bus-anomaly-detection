@@ -1,0 +1,45 @@
+[project]
+name = "can-bus-anomaly-detection"
+version = "0.1.0"
+description = "Unsupervised intrusion detection on CAN bus traffic with an MLP autoencoder (OTIDS + CrySyS)."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Vatsal Parikh", email = "vatsalparikh1996@gmail.com" }]
+keywords = ["can-bus", "anomaly-detection", "autoencoder", "automotive-security", "pytorch"]
+
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "matplotlib>=3.8",
+    "scikit-learn>=1.4",
+    "pyyaml>=6.0",
+    "torch>=2.7,<3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+notebook = [
+    "jupyter>=1.0",
+    "ipykernel>=6.29",
+]
+
+# ---------------------------------------------------------------------------
+# uv: pin torch to the CUDA 11.8 build via the official PyTorch index.
+# `uv sync` will install the cu118 wheel on Linux/Windows; CPU users can
+# override with `uv sync --index-strategy unsafe-best-match` or edit below.
+# ---------------------------------------------------------------------------
+[tool.uv.sources]
+torch = { index = "pytorch-cu118" }
+
+[[tool.uv.index]]
+name = "pytorch-cu118"
+url = "https://download.pytorch.org/whl/cu118"
+explicit = true
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+addopts = "-v"
