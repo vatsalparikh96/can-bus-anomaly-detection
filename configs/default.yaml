@@ -1,0 +1,22 @@
+# Default training config
+# Used by scripts/train.py via argparse defaults — populated in Phase 5.
+seed: 42
+
+data:
+  raw_dir: data/otids/raw
+  top_k_can_ids: 20
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+
+model:
+  hidden_dims: [16, 8, 16]   # encoder bottleneck decoder
+
+training:
+  batch_size: 256
+  epochs: 30
+  lr: 0.001
+  early_stopping_patience: 5
+
+evaluation:
+  threshold_percentile: 99.0
